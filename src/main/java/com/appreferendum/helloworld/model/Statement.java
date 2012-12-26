@@ -22,6 +22,8 @@ public class Statement
         return id;
     }
 
+    @Id
+    @ObjectId
     public void setId(Long id)
     {
         this.id = id;
