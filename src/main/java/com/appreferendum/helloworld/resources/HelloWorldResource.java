@@ -37,8 +37,8 @@ public class HelloWorldResource
     public Saying sayHello(@QueryParam("name") Optional<String> name)
     {
 
-        JacksonDBCollection<Statement, String> statements =
-                JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
+        JacksonDBCollection<Statement, Long> statements =
+                JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, Long.class);
         Statement st =
                 new Statement(counter.incrementAndGet(), String.format(template, name.or(defaultName)));
 
