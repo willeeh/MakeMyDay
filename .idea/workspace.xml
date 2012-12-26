@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" name="Default" comment="" />
+    <list default="true" id="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java" afterPath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/service/MongoManaged.java" afterPath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/service/MongoManaged.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/model/Statement.java" afterPath="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/model/Statement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appreferendum.iml" afterPath="$PROJECT_DIR$/appreferendum.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="appreferendum.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/.idea/modules.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394652785" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/misc.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394945600" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356396283458" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/compiler.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394777689" ignored="false" />
     <file path="/pom.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356395996085" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_guava_2_1_1.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394777126" ignored="false" />
@@ -50,8 +58,18 @@
     <file path="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_2.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394777368" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/encodings.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394777689" ignored="false" />
     <file path="/HelloWorldConfiguration.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356394997983" ignored="false" />
-    <file path="/HelloWorldService.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356395183011" ignored="false" />
+    <file path="/HelloWorldService.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356540644331" ignored="false" />
     <file path="/TemplateHealthCheck.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356395794639" ignored="false" />
+    <file path="/Dummy.txt" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539849134" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongo_java_driver_2_7_2.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539853544" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0_2.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539890204" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__de_undercouch_bson4jackson_1_3_0.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539890204" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_5.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539890204" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_5.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539890211" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/libraries/Maven__net_vz_mongodb_jackson_mongo_jackson_mapper_1_4_1.xml" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356539890211" ignored="false" />
+    <file path="/Statement.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356541195006" ignored="false" />
+    <file path="/MongoManaged.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356540478368" ignored="false" />
+    <file path="/HelloWorldResource.java" changelist="0d1a18ab-1b5a-4434-ac6f-a2f56a6efc92" time="1356542422089" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,10 +129,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="21" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.7457627">
+            <state line="13" column="22" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,7 +152,7 @@
       <file leaf-file-name="HelloWorldService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="70" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
+            <state line="28" column="82" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,16 +172,16 @@
       <file leaf-file-name="Saying.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/core/Saying.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
+            <state line="11" column="23" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldResource.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java">
+      <file leaf-file-name="Statement.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/model/Statement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="11" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0">
+            <state line="14" column="39" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,11 +189,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Optional.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/13.0.1/guava-13.0.1.jar!/com/google/common/base/Optional.class">
+      <file leaf-file-name="HelloWorldResource.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="240" selection-end="240" vertical-scroll-proportion="-3.6">
-              <folding />
+            <state line="37" column="15" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.25373134">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -196,16 +216,26 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/appreferendum/helloworld/hello-world.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/core/Saying.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/health/TemplateHealthCheck.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/core/Saying.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/service/MongoManaged.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/model/Statement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java" />
       </list>
     </option>
   </component>
@@ -349,7 +379,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="health" />
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,10 +488,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -471,11 +502,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820097" sideWeight="0.6712538" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -536,23 +566,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/core/Saying.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/13.0.1/guava-13.0.1.jar!/com/google/common/base/Optional.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="240" selection-end="240" vertical-scroll-proportion="-3.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hello-world.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="21" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/health/TemplateHealthCheck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="8" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -566,35 +589,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/13.0.1/guava-13.0.1.jar!/com/google/common/base/Optional.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="11" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="7" column="22" selection-start="240" selection-end="240" vertical-scroll-proportion="0.15929204">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/health/TemplateHealthCheck.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/service/MongoManaged.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="5" column="13" selection-start="132" selection-end="132" vertical-scroll-proportion="0.12437811">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/HelloWorldService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="70" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
+        <state line="28" column="82" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/model/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="39" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/core/Saying.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="23" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="21" selection-start="3534" selection-end="3534" vertical-scroll-proportion="0.7457627">
+        <state line="13" column="22" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/appreferendum/helloworld/resources/HelloWorldResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="15" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.25373134">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
