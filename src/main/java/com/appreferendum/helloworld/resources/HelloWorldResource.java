@@ -37,10 +37,12 @@ public class HelloWorldResource
     public Saying sayHello(@QueryParam("name") Optional<String> name)
     {
 
-        JacksonDBCollection<Statement, Long> statements =
-                JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, Long.class);
+        JacksonDBCollection<Statement, String> statements =
+                JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
         Statement st =
-                new Statement(counter.incrementAndGet(), String.format(template, name.or(defaultName)));
+                new Statement(
+                        String.valueOf(counter.incrementAndGet()),
+                        String.format(template, name.or(defaultName)) );
 
         DBCursor<Statement> cursor = statements.find().is("id", st.getId());
         if (cursor.hasNext())
@@ -50,7 +52,7 @@ public class HelloWorldResource
 
         statements.save(st);
 
-        return new Saying(st.getId(), st.getContent());
+        return new Saying(Long.valueOf(st.getId()), st.getContent());
     }
 
     /*@GET

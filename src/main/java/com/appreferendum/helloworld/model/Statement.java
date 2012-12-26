@@ -5,11 +5,11 @@ import net.vz.mongodb.jackson.ObjectId;
 
 public class Statement
 {
-    private Long id;
+    private String id;
 
     private String content;
 
-    public Statement(Long id, String content)
+    public Statement(String id, String content)
     {
         this.id = id;
         this.content = content;
@@ -17,14 +17,14 @@ public class Statement
 
     @Id
     @ObjectId
-    public Long getId()
+    public String getId()
     {
         return id;
     }
 
     @Id
     @ObjectId
-    public void setId(Long id)
+    public void setId(String id)
     {
         this.id = id;
     }
