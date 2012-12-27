@@ -1,6 +1,5 @@
 package com.appreferendum.helloworld.resources;
 
-import com.appreferendum.helloworld.core.Saying;
 import com.appreferendum.helloworld.model.Statement;
 import com.google.common.base.Optional;
 import com.mongodb.DB;
@@ -8,10 +7,10 @@ import com.yammer.metrics.annotation.Timed;
 import net.vz.mongodb.jackson.DBCursor;
 import net.vz.mongodb.jackson.JacksonDBCollection;
 import net.vz.mongodb.jackson.WriteResult;
-import net.vz.mongodb.jackson.internal.stream.JacksonDBObject;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/hello-world")
@@ -34,7 +33,7 @@ public class HelloWorldResource
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("name") Optional<String> name)
+    public Statement sayHello(@QueryParam("name") Optional<String> name)
     {
 
         JacksonDBCollection<Statement, String> statements =
@@ -42,23 +41,25 @@ public class HelloWorldResource
         Statement st =
                 new Statement( String.format(template, name.or(defaultName)) );
 
-        /*DBCursor<Statement> cursor = statements.find().is("id", st.getId());
-        if (cursor.hasNext())
+        WriteResult<Statement, String> result = statements.save(st);
+
+        return result.getSavedObject();
+    }
+
+    @Path("/{id}")
+    @GET
+    @Timed
+    public Statement getHello(@PathParam("id") Long id)
+    {
+        JacksonDBCollection<Statement, String> statements =
+                        JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
+        DBCursor<Statement> cursor = statements.find().is("id", id);
+
+        if (cursor == null)
         {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
-        */
 
-        WriteResult<Statement, String> result = statements.save(st);
-        String newId = result.getSavedId();
-
-        return new Saying(newId, st.getContent());
+        return cursor.next();
     }
-
-    /*@GET
-    @Timed
-    public Saying getHello(@QueryParam("id") Long id)
-    {
-
-    }*/
 }
