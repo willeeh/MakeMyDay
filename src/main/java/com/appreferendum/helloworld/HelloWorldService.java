@@ -1,6 +1,7 @@
 package com.appreferendum.helloworld;
 
 import com.appreferendum.helloworld.health.TemplateHealthCheck;
+import com.appreferendum.helloworld.resources.HelloWorldCreationResource;
 import com.appreferendum.helloworld.resources.HelloWorldResource;
 import com.appreferendum.helloworld.service.MongoManaged;
 import com.mongodb.DB;
@@ -36,7 +37,10 @@ public class HelloWorldService extends Service<HelloWorldConfiguration>
 
         final String template = configuration.getTemplate();
         final String defaultName = configuration.getDefaultName();
-        environment.addResource( new HelloWorldResource(db, template, defaultName) );
+
+        environment.addResource( new HelloWorldResource(db) );
+        environment.addResource( new HelloWorldCreationResource(db, template, defaultName) );
+
         environment.addHealthCheck(new TemplateHealthCheck(template));
     }
 }

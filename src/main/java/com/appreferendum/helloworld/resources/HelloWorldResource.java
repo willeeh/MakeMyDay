@@ -11,42 +11,19 @@ import net.vz.mongodb.jackson.WriteResult;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/hello-world")
+@Path("/hello-world/id/{id}")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource
 {
     private final DB db;
 
-    private final String template;
-    private final String defaultName;
-    private final AtomicLong counter;
-
-    public HelloWorldResource(DB db, String template, String defaultName)
+    public HelloWorldResource(DB db)
     {
         this.db = db;
-        this.template = template;
-        this.defaultName = defaultName;
-        this.counter = new AtomicLong();
     }
 
     @GET
-    @Timed
-    public Statement sayHello(@QueryParam("name") Optional<String> name)
-    {
-
-        JacksonDBCollection<Statement, String> statements =
-                JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
-        Statement st =
-                new Statement( String.format(template, name.or(defaultName)) );
-
-        WriteResult<Statement, String> result = statements.save(st);
-
-        return result.getSavedObject();
-    }
-
-    @GET @Path("/id/{id}")
     @Timed
     public Statement getHello(@PathParam("id") String id)
     {
