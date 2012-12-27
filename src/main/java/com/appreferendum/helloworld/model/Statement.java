@@ -9,6 +9,10 @@ public class Statement
 
     private String content;
 
+    public Statement()
+    {
+    }
+
     public Statement(String content)
     {
         this.content = content;
