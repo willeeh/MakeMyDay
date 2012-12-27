@@ -49,9 +49,9 @@ public class HelloWorldResource
         }
         */
 
-        WriteResult result = statements.save(st);
+        WriteResult<Statement, String> result = statements.save(st);
+        String newId = result.getSavedId();
 
-        String newId = (String)result.getField("_id");
         return new Saying(newId, st.getContent());
     }
 
