@@ -35,15 +35,15 @@ public class HelloWorldResource
 
         JacksonDBCollection<Statement, String> statements =
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
-        DBCursor<Statement> cursor = statements.find().is("_id", id);
+        Statement statement = statements.findOneById(id);
 
-        if (!cursor.hasNext())
+        if (statement == null)
         {
             logger.info("Statement not found");
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
         logger.info("Statement found");
-        return cursor.next();
+        return statement;
     }
 }
