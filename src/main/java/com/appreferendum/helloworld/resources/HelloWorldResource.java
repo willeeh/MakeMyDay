@@ -55,7 +55,7 @@ public class HelloWorldResource
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
         DBCursor<Statement> cursor = statements.find().is("id", id);
 
-        if (cursor == null)
+        if (!cursor.hasNext())
         {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
