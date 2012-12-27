@@ -1,64 +1,64 @@
 package com.appreferendum.helloworld.resources;
 
+import com.appreferendum.helloworld.dao.StatementDAO;
 import com.appreferendum.helloworld.model.Statement;
 
-import com.mongodb.DB;
-import com.mongodb.MongoException;
+import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
-import net.vz.mongodb.jackson.DBCursor;
-import net.vz.mongodb.jackson.DBQuery;
-import net.vz.mongodb.jackson.JacksonDBCollection;
-
-import org.bson.types.ObjectId;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/hello-world/id/{id}")
+@Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource
 {
     private static final Logger logger = LoggerFactory.getLogger(HelloWorldResource.class);
 
-    private final DB db;
+    private final StatementDAO dao;
+    private final String template;
+    private final String defaultName;
 
-    public HelloWorldResource(DB db)
+    public HelloWorldResource(StatementDAO dao, String template, String defaultName)
     {
-        this.db = db;
+        this.dao = dao;
+        this.template = template;
+        this.defaultName = defaultName;
     }
 
     @GET
+    @Path("/id/{id}")
     @Timed
     public Statement getHello(@PathParam("id") String id)
     {
-        logger.info("Getting statement");
+        logger.info("Getting statement by id " + id);
 
-        JacksonDBCollection<Statement, String> statements =
-                        JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
+        ObjectId i = new ObjectId(id);
+        Statement statement = dao.get(i);
 
-        try
-        {
-            DBCursor<Statement> cursor = statements.find(DBQuery.is("id", new ObjectId(id)));
-            if ( !cursor.hasNext() )
-            {
-                logger.info("Statement not found");
-                throw new WebApplicationException(Response.Status.NOT_FOUND);
-            }
-
-            logger.info("Statement found");
-            return cursor.next();
-        }
-        catch (MongoException ex)
+        if (statement == null)
         {
             logger.info("Statement not found");
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        /*logger.info("Statement found");
-        return statement;*/
+        logger.info("Statement found");
+        return statement;
+    }
+
+    @GET
+    @Timed
+    public Statement sayHello(@QueryParam("name") Optional<String> name)
+    {
+        Statement statement = new Statement( String.format(template, name.or(defaultName)) );
+
+        dao.save(statement);
+
+        return statement;
     }
 }

@@ -1,0 +1,5 @@
+template: Hello, %s!
+defaultName: Stranger
+
+database:
+  uri: mongodb://heroku:d3a35a27a7b86d96719081dd92ecf94d@linus.mongohq.com:10084/app10410618

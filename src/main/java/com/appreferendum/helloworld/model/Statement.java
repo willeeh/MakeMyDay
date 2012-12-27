@@ -1,11 +1,12 @@
 package com.appreferendum.helloworld.model;
 
-import net.vz.mongodb.jackson.ObjectId;
-import javax.persistence.Id;
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
 
+@Entity(value="statements", noClassnameStored=true)
 public class Statement
 {
-    private String id;
+    private @Id String id;
 
     private String content;
 
@@ -18,15 +19,11 @@ public class Statement
         this.content = content;
     }
 
-    @Id
-    @ObjectId
     public String getId()
     {
         return id;
     }
 
-    @Id
-    @ObjectId
     public void setId(String id)
     {
         this.id = id;
