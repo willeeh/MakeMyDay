@@ -6,7 +6,10 @@ import com.mongodb.DB;
 import com.mongodb.MongoException;
 import com.yammer.metrics.annotation.Timed;
 import net.vz.mongodb.jackson.DBCursor;
+import net.vz.mongodb.jackson.DBQuery;
 import net.vz.mongodb.jackson.JacksonDBCollection;
+
+import org.bson.types.ObjectId;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -37,11 +40,17 @@ public class HelloWorldResource
         JacksonDBCollection<Statement, String> statements =
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
 
-        Statement statement = null;
-
         try
         {
-            statement = statements.findOneById(id);
+            DBCursor<Statement> cursor = statements.find(DBQuery.is("id", new ObjectId(id)));
+            if ( !cursor.hasNext() )
+            {
+                logger.info("Statement not found");
+                throw new WebApplicationException(Response.Status.NOT_FOUND);
+            }
+
+            logger.info("Statement found");
+            return cursor.next();
         }
         catch (MongoException ex)
         {
@@ -49,7 +58,7 @@ public class HelloWorldResource
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        logger.info("Statement found");
-        return statement;
+        /*logger.info("Statement found");
+        return statement;*/
     }
 }
