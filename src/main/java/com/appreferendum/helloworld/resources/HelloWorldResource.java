@@ -7,11 +7,11 @@ import com.mongodb.DB;
 import com.yammer.metrics.annotation.Timed;
 import net.vz.mongodb.jackson.DBCursor;
 import net.vz.mongodb.jackson.JacksonDBCollection;
+import net.vz.mongodb.jackson.WriteResult;
 import net.vz.mongodb.jackson.internal.stream.JacksonDBObject;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/hello-world")
@@ -40,19 +40,19 @@ public class HelloWorldResource
         JacksonDBCollection<Statement, String> statements =
                 JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
         Statement st =
-                new Statement(
-                        String.valueOf(counter.incrementAndGet()),
-                        String.format(template, name.or(defaultName)) );
+                new Statement( String.format(template, name.or(defaultName)) );
 
-        DBCursor<Statement> cursor = statements.find().is("id", st.getId());
+        /*DBCursor<Statement> cursor = statements.find().is("id", st.getId());
         if (cursor.hasNext())
         {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+        */
 
-        statements.save(st);
+        WriteResult result = statements.save(st);
 
-        return new Saying(Long.valueOf(st.getId()), st.getContent());
+        String newId = (String)result.getField("_id");
+        return new Saying(newId, st.getContent());
     }
 
     /*@GET
