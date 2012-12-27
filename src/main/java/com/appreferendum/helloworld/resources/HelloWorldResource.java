@@ -3,6 +3,7 @@ package com.appreferendum.helloworld.resources;
 import com.appreferendum.helloworld.model.Statement;
 
 import com.mongodb.DB;
+import com.mongodb.MongoException;
 import com.yammer.metrics.annotation.Timed;
 import net.vz.mongodb.jackson.DBCursor;
 import net.vz.mongodb.jackson.JacksonDBCollection;
@@ -35,9 +36,14 @@ public class HelloWorldResource
 
         JacksonDBCollection<Statement, String> statements =
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
-        Statement statement = statements.findOneById(id);
 
-        if (statement == null)
+        Statement statement = null;
+
+        try
+        {
+            statement = statements.findOneById(id);
+        }
+        catch (MongoException ex)
         {
             logger.info("Statement not found");
             throw new WebApplicationException(Response.Status.NOT_FOUND);
