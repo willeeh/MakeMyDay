@@ -3,13 +3,8 @@ package com.appreferendum.helloworld.resources;
 import com.appreferendum.helloworld.model.Statement;
 
 import com.mongodb.DB;
-import com.mongodb.MongoException;
 import com.yammer.metrics.annotation.Timed;
-import net.vz.mongodb.jackson.DBCursor;
-import net.vz.mongodb.jackson.DBQuery;
 import net.vz.mongodb.jackson.JacksonDBCollection;
-
-import org.bson.types.ObjectId;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -40,25 +35,18 @@ public class HelloWorldResource
         JacksonDBCollection<Statement, String> statements =
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
 
+        Statement statement = null;
         try
         {
-            DBCursor<Statement> cursor = statements.find(DBQuery.is("id", new ObjectId(id)));
-            if ( !cursor.hasNext() )
-            {
-                logger.info("Statement not found");
-                throw new WebApplicationException(Response.Status.NOT_FOUND);
-            }
-
-            logger.info("Statement found");
-            return cursor.next();
+            statement = statements.findOneById(id);
         }
-        catch (MongoException ex)
+        catch (IllegalArgumentException ex)
         {
             logger.info("Statement not found");
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        /*logger.info("Statement found");
-        return statement;*/
+        logger.info("Statement found");
+        return statement;
     }
 }
