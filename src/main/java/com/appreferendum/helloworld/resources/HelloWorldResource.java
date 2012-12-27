@@ -46,10 +46,9 @@ public class HelloWorldResource
         return result.getSavedObject();
     }
 
-    @Path("/{id}")
-    @GET
+    @GET @Path("/id/{id}")
     @Timed
-    public Statement getHello(@PathParam("id") Long id)
+    public Statement getHello(@PathParam("id") String id)
     {
         JacksonDBCollection<Statement, String> statements =
                         JacksonDBCollection.wrap(db.getCollection("statements"), Statement.class, String.class);
