@@ -1,4 +1,4 @@
-package com.appreferendum.helloworld.model;
+package com.referappdum.entities;
 
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;

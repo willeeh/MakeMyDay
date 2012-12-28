@@ -1,7 +1,9 @@
-package com.appreferendum.helloworld.resources;
+package com.referappdum.resources;
 
-import com.appreferendum.helloworld.dao.StatementDAO;
-import com.appreferendum.helloworld.model.Statement;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+import com.referappdum.dao.Dao;
+import com.referappdum.entities.Statement;
 
 import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
@@ -20,11 +22,12 @@ public class HelloWorldResource
 {
     private static final Logger logger = LoggerFactory.getLogger(HelloWorldResource.class);
 
-    private final StatementDAO dao;
+    private final Dao<Statement, ObjectId> dao;
     private final String template;
     private final String defaultName;
 
-    public HelloWorldResource(StatementDAO dao, String template, String defaultName)
+    @Inject
+    public HelloWorldResource(Dao<Statement, ObjectId> dao, @Named("template") String template, @Named("defaultName") String defaultName)
     {
         this.dao = dao;
         this.template = template;
@@ -38,13 +41,22 @@ public class HelloWorldResource
     {
         logger.info("Getting statement by id " + id);
 
-        ObjectId i = new ObjectId(id);
-        Statement statement = dao.get(i);
+        ObjectId objectId = null;
+
+        try
+        {
+            objectId = new ObjectId(id);
+        }
+        catch (IllegalArgumentException exception)
+        {
+            notFound();
+        }
+
+        Statement statement = dao.get(objectId);
 
         if (statement == null)
         {
-            logger.info("Statement not found");
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
+            notFound();
         }
 
         logger.info("Statement found");
@@ -60,5 +72,11 @@ public class HelloWorldResource
         dao.save(statement);
 
         return statement;
+    }
+
+    private void notFound()
+    {
+        logger.info("Statement not found");
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 }

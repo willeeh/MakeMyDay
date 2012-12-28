@@ -1,15 +1,17 @@
-package com.appreferendum.helloworld.service;
+package com.referappdum.service;
 
-import com.mongodb.DB;
+import com.google.inject.Inject;
+import com.mongodb.Mongo;
 import com.yammer.dropwizard.lifecycle.Managed;
 
 public class MongoManaged implements Managed
 {
-    private DB m;
+    private final Mongo mongo;
 
-    public MongoManaged(DB m)
+    @Inject
+    public MongoManaged(Mongo mongo)
     {
-        this.m = m;
+        this.mongo = mongo;
     }
 
     @Override
@@ -21,6 +23,6 @@ public class MongoManaged implements Managed
     @Override
     public void stop() throws Exception
     {
-        m.getMongo().close();
+        mongo.close();
     }
 }

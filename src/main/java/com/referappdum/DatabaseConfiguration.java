@@ -1,4 +1,4 @@
-package com.appreferendum.helloworld;
+package com.referappdum;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yammer.dropwizard.config.Configuration;

@@ -1,5 +1,8 @@
 template: Hello, %s!
 defaultName: Stranger
 
+http:
+  rootPath:  /v1/*
+
 database:
   uri: mongodb://localhost:27017/mydb
