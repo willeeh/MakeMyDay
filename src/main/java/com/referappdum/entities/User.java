@@ -4,6 +4,7 @@ import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Reference;
 import com.referappdum.entities.stats.UserStats;
+import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 @Entity(value="users", noClassnameStored=true)
 public class User
 {
-    private @Id String id;
+    private @Id ObjectId id;
 
     private @NotEmpty String facebookId;
     private @NotEmpty String name;
@@ -37,12 +38,12 @@ public class User
         this.token = token;
     }
 
-    public String getId()
+    public ObjectId getId()
     {
         return id;
     }
 
-    public void setId(String id)
+    public void setId(ObjectId id)
     {
         this.id = id;
     }

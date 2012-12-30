@@ -4,7 +4,9 @@ import com.referappdum.entities.User;
 
 public interface UserService
 {
-    void createUser(User user);
+    boolean createUser(User user);
 
     void updateUser(User user);
+
+    User getUser(String facebookId);
 }

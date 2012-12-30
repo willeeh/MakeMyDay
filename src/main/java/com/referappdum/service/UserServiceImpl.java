@@ -19,21 +19,31 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public void createUser(User user)
+    public boolean createUser(User user)
     {
         User existingUser = userDAO.findOne("facebookId", user.getFacebookId());
 
         if (existingUser == null)
         {
-            userDAO.save(user);
-            UserStats stats = new UserStats(user);
+            UserStats stats = new UserStats();
             userStatsDAO.save(stats);
+            user.setStats(stats);
+            userDAO.save(user);
+            return true;
         }
+
+        return false;
     }
 
     @Override
     public void updateUser(User user)
     {
         //TODO @gceballos Do it!
+    }
+
+    @Override
+    public User getUser(String facebookId)
+    {
+        return userDAO.findOne("facebookId", facebookId);
     }
 }
