@@ -5,7 +5,7 @@ import com.google.code.morphia.annotations.Reference;
 import com.makemyday.entities.base.Identity;
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity(value="messages", noClassnameStored=true)
+@Entity(value="posts", noClassnameStored=true)
 public class Post extends Identity
 {
     @NotEmpty
