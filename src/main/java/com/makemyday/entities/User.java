@@ -11,8 +11,7 @@ public class User
     private @Id
     ObjectId id;
 
-    private @NotEmpty
-    String facebookId;
+    private @NotEmpty String facebookId;
     private @NotEmpty String name;
     private @NotEmpty String token;
     private String email;
