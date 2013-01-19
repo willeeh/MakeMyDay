@@ -18,12 +18,6 @@ public class CategoryServiceImpl implements CategoryService
 	}
 
 	@Override
-	public void createCategory(Category category)
-	{
-		categoryDAO.save(category);
-	}
-
-	@Override
 	public Collection<Category> getCategories()
 	{
 		// Here we use asList because there won't be too many categories

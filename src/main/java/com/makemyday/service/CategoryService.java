@@ -7,11 +7,6 @@ import java.util.Collection;
 public interface CategoryService
 {
 	/**
-	 * Just saves the category.
-	 */
-    void createCategory(Category category);
-
-	/**
 	 * Gets all categories
 	 */
 	Collection<Category> getCategories();
