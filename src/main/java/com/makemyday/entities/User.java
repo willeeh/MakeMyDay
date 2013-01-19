@@ -1,12 +1,9 @@
 package com.makemyday.entities;
 
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
 import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.NotEmpty;
-
-import com.google.code.morphia.annotations.Id;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(value="users", noClassnameStored=true)
 public class User
