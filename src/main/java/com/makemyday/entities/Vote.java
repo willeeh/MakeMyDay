@@ -2,9 +2,10 @@ package com.makemyday.entities;
 
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Reference;
+import com.makemyday.entities.base.Identity;
 
 @Entity(value="votes", noClassnameStored=true)
-public class Vote
+public class Vote extends Identity
 {
     public enum TYPE { LIKE, DISLIKE }
 
