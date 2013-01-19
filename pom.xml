@@ -37,6 +37,12 @@
                 <artifactId>morphia</artifactId>
                 <version>${morphia.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.release.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
 
         <properties>
@@ -49,6 +55,7 @@
             <dropwizard.guice.version>0.6.1.1</dropwizard.guice.version>
             <mongo.java.driver.version>2.7.2</mongo.java.driver.version>
             <morphia.version>1.00-SNAPSHOT</morphia.version>
+            <testng.release.version>5.14.10</testng.release.version>
         </properties>
 
         <build>
