@@ -20,22 +20,22 @@
             <dependency>
                 <groupId>com.yammer.dropwizard</groupId>
                 <artifactId>dropwizard-core</artifactId>
-                <version>0.6.1</version>
+                <version>${dropwizard.core.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.hubspot.dropwizard</groupId>
                 <artifactId>dropwizard-guice</artifactId>
-                <version>0.6.1.1</version>
+                <version>${dropwizard.guice.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mongodb</groupId>
                 <artifactId>mongo-java-driver</artifactId>
-                <version>2.7.2</version>
+                <version>${mongo.java.driver.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.code.morphia</groupId>
                 <artifactId>morphia</artifactId>
-                <version>1.00-SNAPSHOT</version>
+                <version>${morphia.version}</version>
             </dependency>
         </dependencies>
 
@@ -43,6 +43,12 @@
             <!-- use UTF-8 for everything -->
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+            <!-- Versions of dependencies -->
+            <dropwizard.core.version>0.6.1</dropwizard.core.version>
+            <dropwizard.guice.version>0.6.1.1</dropwizard.guice.version>
+            <mongo.java.driver.version>2.7.2</mongo.java.driver.version>
+            <morphia.version>1.00-SNAPSHOT</morphia.version>
         </properties>
 
         <build>
