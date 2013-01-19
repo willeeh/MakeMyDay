@@ -26,6 +26,9 @@ public class ApplicationModule extends AbstractModule
 
 		bind(new TypeLiteral<Dao<Category, ObjectId>>() {});
 		bind(CategoryService.class).to(CategoryServiceImpl.class);
+
+		bind(new TypeLiteral<Dao<Post, ObjectId>>() {});
+		bind(PostService.class).to(PostServiceImpl.class);
     }
 
     @Provides
