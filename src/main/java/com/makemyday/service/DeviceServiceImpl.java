@@ -17,17 +17,15 @@ public class DeviceServiceImpl implements DeviceService
 	}
 
 	@Override
-	public boolean createDevice(Device device)
+	public void createDevice(Device device)
 	{
 		Device existingDevice = deviceDAO.findOne("udid", device.getUdid());
 
 		if (existingDevice == null)
 		{
 			deviceDAO.save(device);
-			return true;
 		}
 
-		return false;
 	}
 
 	@Override
