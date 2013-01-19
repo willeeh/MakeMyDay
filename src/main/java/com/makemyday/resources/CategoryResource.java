@@ -18,7 +18,7 @@ import java.util.Collection;
 public class CategoryResource
 {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserResource.class);
+	private static final Logger logger = LoggerFactory.getLogger(CategoryResource.class);
 
 	private CategoryService categoryService;
 
