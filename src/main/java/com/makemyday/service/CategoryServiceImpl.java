@@ -1,8 +1,8 @@
 package com.makemyday.service;
 
+import com.google.inject.Inject;
 import com.makemyday.dao.Dao;
 import com.makemyday.entities.Category;
-import com.makemyday.entities.Post;
 import org.bson.types.ObjectId;
 
 import java.util.Collection;
@@ -11,6 +11,7 @@ public class CategoryServiceImpl implements CategoryService
 {
 	private final Dao<Category, ObjectId> categoryDAO;
 
+	@Inject
 	public CategoryServiceImpl(Dao<Category, ObjectId> categoryDAO)
 	{
 		this.categoryDAO = categoryDAO;
