@@ -1,12 +1,12 @@
 package com.makemyday.entities;
 
 import com.google.code.morphia.annotations.Entity;
-import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Reference;
 import com.makemyday.entities.base.Identity;
-import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity(value="users", noClassnameStored=true)
@@ -28,6 +28,8 @@ public class User extends Identity
     @Reference(lazy = true)
     private List<Device> devices;
 
+	private Collection<Post> bookmarks;
+
     public User()
     {
     }
@@ -40,6 +42,8 @@ public class User extends Identity
         this.gender = gender;
         this.email = email;
         this.picture = picture;
+
+		this.bookmarks = new HashSet<Post>();
     }
 
     public String getFacebookId()
@@ -101,4 +105,14 @@ public class User extends Identity
     {
         this.picture = picture;
     }
+
+	public Collection<Post> getBookmarks()
+	{
+		return bookmarks;
+	}
+
+	public void setBookmarks(Collection<Post> bookmarks)
+	{
+		this.bookmarks = bookmarks;
+	}
 }

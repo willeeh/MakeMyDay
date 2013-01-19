@@ -30,13 +30,8 @@ public class UserResource
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response signUp(@Valid User user)
 	{
-		if (userService.createUser(user))
-		{
-			return Response.created(UriBuilder.fromResource(UserResource.class).build(user.getFacebookId())).build();
-		} else
-		{
-			return Response.status(Response.Status.NOT_MODIFIED).build();
-		}
+		userService.createUser(user);
+		return Response.created(UriBuilder.fromResource(UserResource.class).build(user.getFacebookId())).build();
 	}
 
 	@GET
@@ -51,5 +46,14 @@ public class UserResource
 		}
 
 		return user;
+	}
+
+	@GET
+	@Path("/{id}/bookmark/{postId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addBookmark(@PathParam("id") String facebookId, @PathParam("postId") String postId)
+	{
+		userService.addBookmark(facebookId, postId);
+		return Response.ok().build();
 	}
 }
