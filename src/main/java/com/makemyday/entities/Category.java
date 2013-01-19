@@ -10,9 +10,9 @@ public class Category extends Identity
 	@NotEmpty
 	private String name;
 
-	public Category(String category)
+	public Category(String name)
 	{
-		this.name = category;
+		this.name = name;
 	}
 
 	public String getName()
