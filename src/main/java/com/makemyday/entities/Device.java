@@ -6,40 +6,41 @@ import com.makemyday.entities.base.Identity;
 import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity(value="devices", noClassnameStored=true)
+@Entity(value = "devices", noClassnameStored = true)
 public class Device extends Identity
 {
-    @NotEmpty
-    private String udid;
+	@NotEmpty
+	private String udid;
 
-    private String token;
+	private String token;
 
-    public Device()
-    {
-    }
 
-    public Device(String udid)
-    {
-        this.udid = udid;
-    }
+	public Device()
+	{
+	}
 
-    public String getUdid()
-    {
-        return udid;
-    }
+	public Device(String udid)
+	{
+		this.udid = udid;
+	}
 
-    public void setUdid(String udid)
-    {
-        this.udid = udid;
-    }
+	public String getUdid()
+	{
+		return udid;
+	}
 
-    public String getToken()
-    {
-        return token;
-    }
+	public void setUdid(String udid)
+	{
+		this.udid = udid;
+	}
 
-    public void setToken(String token)
-    {
-        this.token = token;
-    }
+	public String getToken()
+	{
+		return token;
+	}
+
+	public void setToken(String token)
+	{
+		this.token = token;
+	}
 }

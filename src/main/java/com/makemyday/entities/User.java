@@ -15,8 +15,6 @@ public class User extends Identity
     @NotEmpty
     private String facebookId;
 
-    private String accessToken;
-
     private String name;
 
     private String gender;
@@ -34,10 +32,9 @@ public class User extends Identity
     {
     }
 
-    public User(String facebookId, String accessToken, String name, String gender, String email, String picture)
+    public User(String facebookId, String name, String gender, String email, String picture)
     {
         this.facebookId = facebookId;
-        this.accessToken = accessToken;
         this.name = name;
         this.gender = gender;
         this.email = email;
@@ -54,16 +51,6 @@ public class User extends Identity
     public void setFacebookId(String facebookId)
     {
         this.facebookId = facebookId;
-    }
-
-    public String getAccessToken()
-    {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken)
-    {
-        this.accessToken = accessToken;
     }
 
     public String getName()

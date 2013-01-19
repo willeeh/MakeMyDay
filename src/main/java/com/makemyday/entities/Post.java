@@ -5,7 +5,7 @@ import com.google.code.morphia.annotations.Reference;
 import com.makemyday.entities.base.Identity;
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity(value="messages", noClassnameStored=true)
+@Entity(value="posts", noClassnameStored=true)
 public class Post extends Identity
 {
     @NotEmpty
@@ -19,7 +19,12 @@ public class Post extends Identity
     @Reference
     private Category category;
 
-    public Post(String message, User creator, Category category)
+
+	public Post()
+	{
+	}
+
+	public Post(String message, User creator, Category category)
     {
         this.message = message;
         this.creator = creator;

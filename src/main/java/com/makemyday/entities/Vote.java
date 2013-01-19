@@ -16,7 +16,12 @@ public class Vote extends Identity
     @Reference
     private Post post;
 
-    public TYPE getType()
+
+	public Vote()
+	{
+	}
+
+	public TYPE getType()
     {
         return type;
     }
