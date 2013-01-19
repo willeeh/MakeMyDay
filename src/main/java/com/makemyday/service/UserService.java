@@ -11,7 +11,9 @@ public interface UserService
 
     void updateUser(User user);
 
-    User getUser(String facebookId);
+    User getUserById(String id);
+
+    User getUserByFacebookId(String facebookId);
 
 	void addBookmark(String user, String post);
 
