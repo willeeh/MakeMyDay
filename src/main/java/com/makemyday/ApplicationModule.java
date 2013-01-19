@@ -5,6 +5,10 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Named;
+import com.makemyday.dao.Dao;
+import com.makemyday.entities.User;
+import com.makemyday.service.UserService;
+import com.makemyday.service.UserServiceImpl;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.MongoURI;
@@ -16,10 +20,8 @@ public class ApplicationModule extends AbstractModule
     @Override
     protected void configure()
     {
-        /*bind(new TypeLiteral<Dao<User, ObjectId>>() {});
-        bind(new TypeLiteral<Dao<UserStats, ObjectId>>() {});
-        bind(new TypeLiteral<Dao<Statement, ObjectId>>() {});
-        bind(UserService.class).to(UserServiceImpl.class);*/
+        bind(new TypeLiteral<Dao<User, ObjectId>>() {});
+        bind(UserService.class).to(UserServiceImpl.class);
     }
 
     @Provides
