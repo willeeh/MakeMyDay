@@ -38,11 +38,17 @@ public class UserServiceImpl implements UserService
     @Override
     public void updateUser(User user)
     {
-        //TODO @gceballos Do it!
+        userDAO.save(user);
     }
 
-    @Override
-    public User getUser(String facebookId)
+	@Override
+	public User getUserById(String id)
+	{
+		return userDAO.get(new ObjectId(id));
+	}
+
+	@Override
+    public User getUserByFacebookId(String facebookId)
     {
         return userDAO.findOne("facebookId", facebookId);
     }
@@ -50,7 +56,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public void addBookmark(String userId, String postId)
 	{
-		User user = getUser(userId);
+		User user = getUserByFacebookId(userId);
 		Post post = postService.getPostById(postId);
 
 		user.getBookmarks().add(post);
@@ -60,7 +66,7 @@ public class UserServiceImpl implements UserService
 	@Override
 	public void removeBookmark(String userId, String postId)
 	{
-		User user = getUser(userId);
+		User user = getUserByFacebookId(userId);
 		Post post = postService.getPostById(postId);
 
 		user.getBookmarks().add(post);

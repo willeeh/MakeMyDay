@@ -36,9 +36,22 @@ public class UserResource
 
 	@GET
 	@Path("/{id}")
-	public User getUser(@PathParam("id") String facebookId)
+	public User getUserById(@PathParam("id") String id)
 	{
-		User user = userService.getUser(facebookId);
+		User user = userService.getUserById(id);
+
+		if (user == null)
+		{
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+
+		return user;
+	}
+
+	@GET
+	public User getUserByFacebookId(@QueryParam("facebookId") String facebookId)
+	{
+		User user = userService.getUserByFacebookId(facebookId);
 
 		if (user == null)
 		{
