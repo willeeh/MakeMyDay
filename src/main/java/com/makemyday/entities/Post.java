@@ -19,7 +19,12 @@ public class Post extends Identity
     @Reference
     private Category category;
 
-    public Post(String message, User creator, Category category)
+
+	public Post()
+	{
+	}
+
+	public Post(String message, User creator, Category category)
     {
         this.message = message;
         this.creator = creator;
