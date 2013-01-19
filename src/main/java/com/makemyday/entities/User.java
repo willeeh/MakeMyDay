@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.code.morphia.annotations.Id;
+import com.google.code.morphia.annotations.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
