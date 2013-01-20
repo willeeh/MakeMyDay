@@ -43,20 +43,13 @@ public class VoteServiceImpl implements VoteService
 		Vote vote = getVote(post);
 		if (!userHasVoted(vote, user))
 		{
-			addVoter(vote, user);
+			vote.getVoters().add(user);
 			UpdateOperations<Vote> updateOperations = userDAO.createUpdateOperations();
 			updateOperations.inc("field"); //TODO field name?
 
-			//TODO update ?
+			updateVote(vote);
 		}
 
-	}
-
-	@Override
-	public void addVoter(Vote vote, User user)
-	{
-		vote.getVoters().add(user);
-		updateVote(vote);
 	}
 
 	@Override

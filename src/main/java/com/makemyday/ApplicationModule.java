@@ -6,9 +6,7 @@ import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Named;
 import com.makemyday.dao.Dao;
-import com.makemyday.entities.Category;
-import com.makemyday.entities.Post;
-import com.makemyday.entities.User;
+import com.makemyday.entities.*;
 import com.makemyday.service.*;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
@@ -29,6 +27,12 @@ public class ApplicationModule extends AbstractModule
 
 		bind(new TypeLiteral<Dao<Post, ObjectId>>() {});
 		bind(PostService.class).to(PostServiceImpl.class);
+
+		bind(new TypeLiteral<Dao<Device, ObjectId>>() {});
+		bind(DeviceService.class).to(DeviceServiceImpl.class);
+
+		bind(new TypeLiteral<Dao<Vote, ObjectId>>() {});
+		bind(VoteService.class).to(VoteServiceImpl.class);
     }
 
     @Provides

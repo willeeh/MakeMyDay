@@ -6,13 +6,31 @@ import com.makemyday.entities.Vote;
 
 public interface VoteService
 {
+	/**
+	 * Create a new vote
+	 * @param post
+	 * @param type
+	 * @return
+	 */
 	Vote createVote(Post post, Vote.TYPE type);
 
+	/**
+	 * Update a vote
+	 * @param vote
+	 */
 	void updateVote(Vote vote);
 
+	/**
+	 * Increment the vote counter and adds user to list of voters
+	 * @param post
+	 * @param user
+	 */
 	void incrementVote(Post post, User user);
 
-	void addVoter(Vote vote, User user);
-
+	/**
+	 * Gets the vote of a post
+	 * @param post
+	 * @return
+	 */
 	Vote getVote(Post post);
 }
