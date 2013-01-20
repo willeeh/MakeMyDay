@@ -2,11 +2,12 @@ package com.makemyday.resources;
 
 import com.google.inject.Inject;
 import com.makemyday.entities.Post;
+import com.makemyday.entities.Vote;
 import com.makemyday.service.PostService;
+import com.makemyday.service.VoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -21,19 +22,25 @@ public class PostResource
 
 	private static final int MAX_POST_LIMIT = 100;
 
-	private PostService postService;
+	private final PostService postService;
+
+	private final VoteService voteService;
 
 	@Inject
-	public PostResource(PostService postService)
+	public PostResource(PostService postService, VoteService voteService)
 	{
 		this.postService = postService;
+		this.voteService = voteService;
 	}
 
+	// TODO must validate post
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createPost(@Valid Post post)
+	public Response createPost(Post post)
 	{
 		postService.createPost(post);
+		voteService.createVote(post, Vote.TYPE.LIKE);
+		voteService.createVote(post, Vote.TYPE.DISLIKE);
 
 		return Response.created(UriBuilder.fromResource(PostResource.class).build(post.getId())).build();
 	}

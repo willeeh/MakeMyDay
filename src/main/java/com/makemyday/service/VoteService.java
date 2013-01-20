@@ -24,13 +24,14 @@ public interface VoteService
 	 * Increment the vote counter and adds user to list of voters
 	 * @param post
 	 * @param user
+	 * @param type
 	 */
-	void incrementVote(Post post, User user);
+	void incrementVote(Post post, User user, Vote.TYPE type);
 
 	/**
 	 * Gets the vote of a post
 	 * @param post
 	 * @return
 	 */
-	Vote getVote(Post post);
+	Vote getVote(Post post, Vote.TYPE type);
 }

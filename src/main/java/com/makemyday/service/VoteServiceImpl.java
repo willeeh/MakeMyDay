@@ -40,9 +40,9 @@ public class VoteServiceImpl implements VoteService
 	 * @param user
 	 */
 	@Override
-	public void incrementVote(Post post, User user)
+	public void incrementVote(Post post, User user, Vote.TYPE type)
 	{
-		Vote vote = getVote(post);
+		Vote vote = getVote(post, type);
 		if (!userHasVoted(vote, user))
 		{
 			vote.getVoters().add(user);
@@ -55,7 +55,7 @@ public class VoteServiceImpl implements VoteService
 	}
 
 	@Override
-	public Vote getVote(Post post)
+	public Vote getVote(Post post, Vote.TYPE type)
 	{
 		return null;  //To change body of implemented methods use File | Settings | File Templates.
 	}
