@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService
     @Override
     public ObjectId createUser(User user)
     {
-        User existingUser = userDAO.findOne("facebookId", user.getFacebookId());
+        User existingUser = getUserByFacebookId(user.getFacebookId());
 
 		if (existingUser != null)
 			return existingUser.getId();
 
-		userDAO.save(user);
+		updateUser(user);
 		return user.getId();
     }
 
