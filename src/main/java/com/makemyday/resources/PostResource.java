@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.util.Collection;
 
+import static com.makemyday.entities.Post.VoteType.DISLIKE;
 import static com.makemyday.entities.Post.VoteType.LIKE;
 
 @Path("/post")
@@ -78,8 +79,21 @@ public class PostResource
 	@Path("/{id}/like/user/{userId}")
 	public Response like(@PathParam("id") String postId, @PathParam("userId") String userId)
 	{
-		User user = userService.getUserById(userId);
-		postService.incrementVote(postId, user, LIKE);
+		vote(postId, userId, LIKE);
 		return Response.ok().build();
+	}
+
+	@GET
+	@Path("/{id}/dislike/user/{userId}")
+	public Response dislike(@PathParam("id") String postId, @PathParam("userId") String userId)
+	{
+		vote(postId, userId, DISLIKE);
+		return Response.ok().build();
+	}
+
+	private void vote(String postId, String userId, Post.VoteType voteType)
+	{
+		User user = userService.getUserById(userId);
+		postService.incrementVote(postId, user, voteType);
 	}
 }
