@@ -40,10 +40,7 @@ public class UserResource
 	{
 		User user = userService.getUserById(id);
 
-		if (user == null)
-		{
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
+		checkUserExists(user);
 
 		return user;
 	}
@@ -53,10 +50,7 @@ public class UserResource
 	{
 		User user = userService.getUserByFacebookId(facebookId);
 
-		if (user == null)
-		{
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
+		checkUserExists(user);
 
 		return user;
 	}
@@ -68,5 +62,13 @@ public class UserResource
 	{
 		userService.addBookmark(facebookId, postId);
 		return Response.ok().build();
+	}
+
+	private void checkUserExists(User user)
+	{
+		if (user == null)
+		{
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
 	}
 }

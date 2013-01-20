@@ -64,6 +64,12 @@ public class PostResource
 			@QueryParam("offset") @DefaultValue("0") int offset,
 			@QueryParam("limit") @DefaultValue("10") int limit)
 	{
+		validateLastestPosts(offset, limit);
+		return postService.getLatestPosts(offset,  limit);
+	}
+
+	private void validateLastestPosts(int offset, int limit)
+	{
 		if (offset < 0 || limit < 0)
 			throw new WebApplicationException(Response.Status.PRECONDITION_FAILED); // TODO: Add message
 
@@ -71,8 +77,6 @@ public class PostResource
 			throw new WebApplicationException(
 					Response.status(Response.Status.PRECONDITION_FAILED).entity(
 							"Limit can't be greater than " + MAX_POST_LIMIT).build());
-
-		return postService.getLatestPosts(offset,  limit);
 	}
 
 	@GET

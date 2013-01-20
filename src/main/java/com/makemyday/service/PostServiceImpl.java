@@ -49,9 +49,14 @@ public class PostServiceImpl implements PostService
 	public void incrementVote(String postId, User user, Post.VoteType type)
 	{
 		ObjectId postObjectId = new ObjectId(postId);
+		atomicIncrement(user, type, postObjectId);
+	}
+
+	private void atomicIncrement(User user, Post.VoteType type, ObjectId objectId)
+	{
 		Query<Post> query = postDAO.createQuery();
 		query.and(
-				query.criteria("_id").equal(postObjectId),
+				query.criteria("_id").equal(objectId),
 				query.criteria("voters").notEqual(user)
 		);
 
