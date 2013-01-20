@@ -1,6 +1,7 @@
 package com.makemyday.service;
 
 import com.google.code.morphia.query.UpdateOperations;
+import com.google.inject.Inject;
 import com.makemyday.dao.Dao;
 import com.makemyday.entities.Post;
 import com.makemyday.entities.User;
@@ -12,6 +13,7 @@ public class VoteServiceImpl implements VoteService
 
 	private final Dao<Vote, ObjectId> userDAO;
 
+	@Inject
 	public VoteServiceImpl(Dao<Vote, ObjectId> userDAO)
 	{
 		this.userDAO = userDAO;
