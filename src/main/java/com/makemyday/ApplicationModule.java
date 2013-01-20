@@ -30,9 +30,6 @@ public class ApplicationModule extends AbstractModule
 
 		bind(new TypeLiteral<Dao<Device, ObjectId>>() {});
 		bind(DeviceService.class).to(DeviceServiceImpl.class);
-
-		bind(new TypeLiteral<Dao<Vote, ObjectId>>() {});
-		bind(VoteService.class).to(VoteServiceImpl.class);
     }
 
     @Provides

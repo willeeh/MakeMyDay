@@ -2,9 +2,9 @@ package com.makemyday.resources;
 
 import com.google.inject.Inject;
 import com.makemyday.entities.Post;
-import com.makemyday.entities.Vote;
+import com.makemyday.entities.User;
 import com.makemyday.service.PostService;
-import com.makemyday.service.VoteService;
+import com.makemyday.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.util.Collection;
+
+import static com.makemyday.entities.Post.VoteType.LIKE;
 
 @Path("/post")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,13 +26,13 @@ public class PostResource
 
 	private final PostService postService;
 
-	private final VoteService voteService;
+	private final UserService userService;
 
 	@Inject
-	public PostResource(PostService postService, VoteService voteService)
+	public PostResource(PostService postService, UserService userService)
 	{
 		this.postService = postService;
-		this.voteService = voteService;
+		this.userService = userService;
 	}
 
 	// TODO must validate post
@@ -39,9 +41,6 @@ public class PostResource
 	public Response createPost(Post post)
 	{
 		postService.createPost(post);
-		voteService.createVote(post, Vote.TYPE.LIKE);
-		voteService.createVote(post, Vote.TYPE.DISLIKE);
-
 		return Response.created(UriBuilder.fromResource(PostResource.class).build(post.getId())).build();
 	}
 
@@ -73,5 +72,14 @@ public class PostResource
 							"Limit can't be greater than " + MAX_POST_LIMIT).build());
 
 		return postService.getLatestPosts(offset,  limit);
+	}
+
+	@GET
+	@Path("/{id}/like/user/{userId}")
+	public Response like(@PathParam("id") String postId, @PathParam("userId") String userId)
+	{
+		User user = userService.getUserById(userId);
+		postService.incrementVote(postId, user, LIKE);
+		return Response.ok().build();
 	}
 }
