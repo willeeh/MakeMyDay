@@ -3,6 +3,7 @@ package com.makemyday.resources;
 import com.google.inject.Inject;
 import com.makemyday.entities.User;
 import com.makemyday.service.UserService;
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +11,6 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
@@ -30,8 +30,8 @@ public class UserResource
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response signUp(@Valid User user)
 	{
-		userService.createUser(user);
-		return Response.created(UriBuilder.fromResource(UserResource.class).build(user.getFacebookId())).build();
+		ObjectId objectId = userService.createUser(user);
+		return Response.status(Response.Status.CREATED).entity(objectId.toStringMongod()).build();
 	}
 
 	@GET

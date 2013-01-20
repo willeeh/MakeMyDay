@@ -2,12 +2,13 @@ package com.makemyday.service;
 
 import com.makemyday.entities.Post;
 import com.makemyday.entities.User;
+import org.bson.types.ObjectId;
 
 import java.util.Collection;
 
 public interface UserService
 {
-    void createUser(User user);
+    ObjectId createUser(User user);
 
     void updateUser(User user);
 
