@@ -15,7 +15,7 @@ public class ApplicationService extends Service<ApplicationConfiguration>
         @Override
         public void initialize(Bootstrap<ApplicationConfiguration> bootstrap)
         {
-            bootstrap.setName("referappdum");
+            bootstrap.setName("makemyday");
             bootstrap.addBundle(GuiceBundle.newBuilder()
                 .addModule(new ApplicationModule())
                 .enableAutoConfig(getClass().getPackage().getName())
