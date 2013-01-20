@@ -6,7 +6,6 @@ import com.makemyday.entities.base.Identity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 @Entity(value="users", noClassnameStored=true)
@@ -27,21 +26,6 @@ public class User extends Identity
     private List<Device> devices;
 
 	private Collection<Post> bookmarks;
-
-    public User()
-    {
-    }
-
-    public User(String facebookId, String name, String gender, String email, String picture)
-    {
-        this.facebookId = facebookId;
-        this.name = name;
-        this.gender = gender;
-        this.email = email;
-        this.picture = picture;
-
-		this.bookmarks = new HashSet<Post>();
-    }
 
     public String getFacebookId()
     {

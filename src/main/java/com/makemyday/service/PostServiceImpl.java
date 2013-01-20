@@ -12,17 +12,24 @@ import java.util.Collection;
 
 public class PostServiceImpl implements PostService
 {
+	public static final String POST_IMPORTANCE = "postImportance";
+
 	private final Dao<Post, ObjectId> postDAO;
 
+	private final SequenceService sequenceService;
+
 	@Inject
-	public PostServiceImpl(Dao<Post, ObjectId> postDAO)
+	public PostServiceImpl(Dao<Post, ObjectId> postDAO, SequenceService sequenceService)
 	{
 		this.postDAO = postDAO;
+		this.sequenceService = sequenceService;
 	}
 
 	@Override
 	public void createPost(Post post)
 	{
+		long postImportance = sequenceService.getCounter(POST_IMPORTANCE);
+		post.setImportance(postImportance);
 		postDAO.save(post);
 	}
 
@@ -50,7 +57,10 @@ public class PostServiceImpl implements PostService
 
 		// This query succeeds only if the voters array doesn't contain the user
 		UpdateOperations<Post> updateOperations = postDAO.createUpdateOperations();
-		updateOperations.inc(type.fieldName).add("voters", user);
+		updateOperations
+				.inc(type.fieldName)
+				.inc("importance", type.importanceIncrement)
+				.add("voters", user);
 
 		postDAO.update(query, updateOperations);
 	}

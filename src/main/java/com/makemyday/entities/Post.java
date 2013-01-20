@@ -6,20 +6,22 @@ import com.makemyday.entities.base.Identity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 @Entity(value="posts", noClassnameStored=true)
 public class Post extends Identity
 {
 	public static enum VoteType
 	{
-		LIKE("likes"), DISLIKE("dislikes");
+		LIKE("likes", 1), DISLIKE("dislikes", -1);
 
 		public final String fieldName;
 
-		VoteType(String fieldName)
+		public final long importanceIncrement;
+
+		VoteType(String fieldName, long importanceIncrement)
 		{
 			this.fieldName = fieldName;
+			this.importanceIncrement = importanceIncrement;
 		}
 	}
 
@@ -44,20 +46,7 @@ public class Post extends Identity
 
 	private long dislikes;
 
-
-	public Post()
-	{
-	}
-
-	public Post(String message, User creator, Category category)
-    {
-        this.message = message;
-        this.creator = creator;
-        this.category = category;
-		voters = new HashSet<User>();
-		likes = 0;
-		dislikes = 0;
-    }
+	private long importance;
 
     public String getMessage()
     {
@@ -109,11 +98,23 @@ public class Post extends Identity
 		this.likes = likes;
 	}
 
-	public long getDislikes() {
+	public long getDislikes()
+	{
 		return dislikes;
 	}
 
-	public void setDislikes(long dislikes) {
+	public void setDislikes(long dislikes)
+	{
 		this.dislikes = dislikes;
+	}
+
+	public long getImportance()
+	{
+		return importance;
+	}
+
+	public void setImportance(long importance)
+	{
+		this.importance = importance;
 	}
 }

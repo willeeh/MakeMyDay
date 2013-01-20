@@ -30,6 +30,9 @@ public class ApplicationModule extends AbstractModule
 
 		bind(new TypeLiteral<Dao<Device, ObjectId>>() {});
 		bind(DeviceService.class).to(DeviceServiceImpl.class);
+
+		bind(new TypeLiteral<Dao<Sequence, ObjectId>>() {});
+		bind(SequenceService.class).to(SequenceServiceImpl.class);
     }
 
     @Provides
