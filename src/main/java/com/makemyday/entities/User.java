@@ -24,7 +24,7 @@ public class User extends Identity
     private String picture;
 
     @Reference(lazy = true)
-    private List<Device> devices;
+    private Collection<Device> devices;
 
 	private Collection<Post> bookmarks;
 
@@ -40,6 +40,7 @@ public class User extends Identity
         this.email = email;
         this.picture = picture;
 
+        this.devices = new HashSet<Device>();
 		this.bookmarks = new HashSet<Post>();
     }
 
@@ -102,4 +103,14 @@ public class User extends Identity
 	{
 		this.bookmarks = bookmarks;
 	}
+
+    public Collection<Device> getDevices()
+    {
+        return devices;
+    }
+
+    public void setDevices(Collection<Device> devices)
+    {
+        this.devices = devices;
+    }
 }
